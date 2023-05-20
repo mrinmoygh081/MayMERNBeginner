@@ -1,0 +1,51 @@
+/* external css */
+h6 {
+  font-size: 30px;
+  color: red;
+}
+
+.rounak {
+  color: green;
+}
+.blue {
+  color: blue;
+}
+
+#pink {
+  color: pink;
+}
+
+/* ======================= */
+/* priority */
+/* ======================= */
+
+/* 
+priority : 
+!important > inline > id > class > tag 
+if above is same, lower element has high priority
+*/
+#guess {
+  color: blue;
+}
+.guess {
+  color: red !important;
+  color: yellow;
+}
+
+h4 {
+  color: green;
+}
+
+.guess2 {
+  color: violet;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* box-model  */
+.understand_p_m {
+  background-color: red;
+}

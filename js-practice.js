@@ -72,11 +72,129 @@ var num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // return odd numbers : HW
 var odd = [1, 3, 5, 7, 9];
 
 // if age >= 18 "adult" : "kid"
-var age = 19;
-if (age > 18) {
-  console.log("complete adult");
-} else if (age == 18) {
-  console.log("just become an adult");
-} else {
-  console.log("kid");
-}
+// var age = 19;
+// if (age > 18) {
+//   console.log("complete adult");
+// } else if (age == 18) {
+//   console.log("just become an adult");
+// } else {
+//   console.log("kid");
+// }
+
+// looping : for, while, do-while, forEach, map, filter, reduce
+// 1 3 5
+
+// if number is devided by 3 -> "fizz"
+// if number is devided by 5 -> "buzz"
+// if number is devided by 3 and 5 -> "fizzbuzz"
+// 1 2 fizz 4 buzz 5 fizz ... 14 fizzbuzz
+
+// var a = 1;
+// while (a <= 20) {
+//   if (a % 5 === 0 && a % 3 === 0) {
+//     console.log("FizzBuzz");
+//   } else if (a % 3 === 0) {
+//     console.log("Fizz");
+//   } else if (a % 5 === 0) {
+//     console.log("Buzz");
+//   } else {
+//     console.log(a);
+//   }
+//   a++;
+// }
+
+// HW apply FizzBuzz in for loop
+// for (var a = 1; a <= 10; a += 2) {
+//   console.log(a);
+// }
+
+// var a = 1;
+// do {
+//   console.log(a);
+//   a++;
+// } while (false);
+
+// let a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// a.forEach(function (item) {
+//   console.log(item);
+// });
+
+let students = [
+  {
+    name: "John",
+    age: 21,
+  },
+  {
+    name: "Mrinmoy",
+    age: 12,
+  },
+  {
+    name: "Utsa",
+    age: 35,
+  },
+  {
+    name: "Biru",
+    age: 17,
+  },
+];
+let adults = [];
+
+students.forEach(function (item) {
+  // console.log(item);
+  if (item.age >= 18) {
+    adults.push(item.name);
+  }
+});
+// console.log(adults);
+
+// function writing(name) {
+//   console.log(name + " is good developer"); // concatenation
+// }
+// // console.log(students.length);
+// for (var i = 0; i < students.length; i++) {
+//   writing(students[i].name);
+// }
+
+// JS with ES6
+
+// variables
+// var  -  let -  const
+
+// let vs const
+
+// const c = 0;
+
+// var vs let
+// var works in global scope but let only works in block scope
+// if (true) {
+//   let a = 10;
+// }
+// console.log(a);
+
+// Hoisting;
+// function something1(name) {
+//   console.log("Hello world!", name);
+// }
+
+// something("Ayan");
+
+// // arrow function
+// const something = (name) => {
+//   console.log("Hello world!" + name);
+// };
+
+// turnary operators
+// if (1 == 0 && 2 == 2) {
+//   console.log("statement is true");
+//   if (true) {
+//     console.log("second statement is true");
+//   }
+// } else {
+//   console.log("statement is false");
+// }
+
+// turnary operators=   conditions ? "true statements" : "false statements"
+// 1 == 1 && 2 == 2
+//   ? console.log("statement is true")
+//   : console.log("statement is false");

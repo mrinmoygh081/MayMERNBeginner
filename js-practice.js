@@ -120,32 +120,32 @@ var odd = [1, 3, 5, 7, 9];
 //   console.log(item);
 // });
 
-let students = [
-  {
-    name: "John",
-    age: 21,
-  },
-  {
-    name: "Mrinmoy",
-    age: 12,
-  },
-  {
-    name: "Utsa",
-    age: 35,
-  },
-  {
-    name: "Biru",
-    age: 17,
-  },
-];
-let adults = [];
+// let students = [
+//   {
+//     name: "John",
+//     age: 21,
+//   },
+//   {
+//     name: "Mrinmoy",
+//     age: 12,
+//   },
+//   {
+//     name: "Utsa",
+//     age: 35,
+//   },
+//   {
+//     name: "Biru",
+//     age: 17,
+//   },
+// ];
+// let adults = [];
 
-students.forEach(function (item) {
-  // console.log(item);
-  if (item.age >= 18) {
-    adults.push(item.name);
-  }
-});
+// students.forEach(function (item) {
+//   // console.log(item);
+//   if (item.age >= 18) {
+//     adults.push(item.name);
+//   }
+// });
 // console.log(adults);
 
 // function writing(name) {
@@ -198,3 +198,72 @@ students.forEach(function (item) {
 // 1 == 1 && 2 == 2
 //   ? console.log("statement is true")
 //   : console.log("statement is false");
+
+// const something = () => {
+//   console.log("statement is true");
+// };
+
+// something();
+
+let data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// let result = [];
+
+// forEach function return nothing
+// data.forEach(function (item) {
+//   if (item % 2 == 1) {
+//     result.push(item);
+//   }
+// });
+// console.log(result);
+
+// console.log("================================================");
+
+// map function return an array
+let newVal = data.map((item) => {
+  if (item % 2 == 0) {
+    return "Fizz";
+  }
+  return item;
+});
+console.log(newVal);
+
+// let students = [
+//   {
+//     name: "John",
+//     age: 21,
+//   },
+//   {
+//     name: "Mrinmoy",
+//     age: 12,
+//   },
+//   {
+//     name: "Utsa",
+//     age: 35.5,
+//   },
+//   {
+//     name: "Biru",
+//     age: 17.5,
+//   },
+// ];
+
+// let names = [];
+// students.map((item) => {
+//   names.push(item.name);
+// });
+// console.log(names);
+
+// const adults = students.filter((item) => item.age >= 18);
+// console.log(adults);
+
+// const earnings = [20000, 30000, 25000, 50000, 100000, 10];
+// /// 0           20000 = 20000
+// /// 20000       30000 = 50000
+// /// 50000       25000 = 75000
+// /// 75000       50000 = 125000
+// /// 125000      100000 = 225000
+// /// 225000      10     = 225010
+// let ans = earnings.reduce((accumalator, currentValue) => {
+//   // console.log(currentValue);
+//   return accumalator + currentValue;
+// }, 5000);
+// console.log(ans);

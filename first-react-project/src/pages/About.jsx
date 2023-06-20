@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 function About() {
   return (
     <>
-      <Header />
+      <Header noHome={true} />
       <div style={{ backgroundColor: "#fff" }}>
         <h1>Something testing here</h1>
       </div>

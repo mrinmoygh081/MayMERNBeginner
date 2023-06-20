@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ContactSection from "../components/ContactSection";
@@ -6,6 +6,26 @@ import AboutSection from "../components/AboutSection";
 import ServiceCard from "../components/ServiceCard";
 
 function Home() {
+  const [again, setAgain] = useState(false);
+  const [fetchData, setFetchData] = useState(null);
+
+  function getData() {
+    let requestOptions = {
+      method: "GET",
+    };
+
+    fetch("https://jsonplaceholder.typicode.com/posts", requestOptions)
+      .then((response) => response.json())
+      .then((result) => setFetchData(result)) // -> transfer result data to fetchData state
+      .catch((error) => console.log("fetchError", error));
+  }
+
+  useEffect(() => {
+    getData();
+  }, [again]); // dependencies
+
+  console.log(fetchData);
+
   return (
     <>
       <div className="main-container">
@@ -13,6 +33,9 @@ function Home() {
 
         {/* <!-- Hero Section With Slider --> */}
         <div className="slider-container">
+          <button onClick={() => setAgain(!again)}>
+            Fetch the data again for me
+          </button>
           <div className="container-fluid slide slide-1">
             <div className="row hero-section-container">
               <div className="col">
@@ -125,10 +148,10 @@ function Home() {
             </div>
           </div>
 
-          <div className="arrow left" onclick="controller(-1)">
+          <div className="arrow left" onClick="controller(-1)">
             <span>&#10094</span>
           </div>
-          <div className="arrow right" onclick="controller(+1)">
+          <div className="arrow right" onClick="controller(+1)">
             <span>&#10095</span>
           </div>
         </div>

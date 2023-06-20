@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header() {
+function Header(props) {
   return (
     <>
       <header>
@@ -14,9 +14,11 @@ function Header() {
             <div className="col-8 nav-right-container">
               <div className="nav-right">
                 <ul>
-                  <li>
-                    <a href="#">Home</a>
-                  </li>
+                  {!props.noHome && (
+                    <li>
+                      <a href="#">Home</a>
+                    </li>
+                  )}
                   <li>
                     <a href="services.html" target="_blank">
                       Services

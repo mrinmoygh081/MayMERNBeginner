@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header(props) {
   return (
@@ -16,33 +17,23 @@ function Header(props) {
                 <ul>
                   {!props.noHome && (
                     <li>
-                      <a href="#">Home</a>
+                      <Link to="/">Home</Link>
                     </li>
                   )}
                   <li>
-                    <a href="services.html" target="_blank">
-                      Services
-                    </a>
+                    <a href="services.html">Services</a>
                   </li>
                   <li>
-                    <a href="project.html" target="_blank">
-                      Project
-                    </a>
+                    <a href="project.html">Project</a>
                   </li>
                   <li>
-                    <a href="about.htm" target="_blank">
-                      About
-                    </a>
+                    <Link to="/about">About</Link>
                   </li>
                   <li>
-                    <a href="blog.html" target="_blank">
-                      Blog
-                    </a>
+                    <a href="blog.html">Blog</a>
                   </li>
                   <li>
-                    <a href="contact.html" target="_blank">
-                      Contact
-                    </a>
+                    <Link to="/contact">Contact</Link>
                   </li>
                   <li className="nav-btn">Get Started</li>
                 </ul>

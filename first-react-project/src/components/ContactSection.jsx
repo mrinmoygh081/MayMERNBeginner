@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 function ContactSection() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [sub, setSub] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [sub, setSub] = useState("");
 
   const [data, setData] = useState({
     name: "",
@@ -13,6 +13,8 @@ function ContactSection() {
     message: "",
     checked: false,
   });
+
+  console.log(data);
 
   // const handleChange = (e) => {
   //   // name = e.target.value;
@@ -32,7 +34,42 @@ function ContactSection() {
   //   setData({ ...data, [name]: value });
   // };
 
-  // console.log(data.checked);
+  const sendMessage = () => {
+    if (data.name === "" || data.name === null || data.name === undefined) {
+      alert("Please enter name");
+    } else if (data.email === "") {
+      alert("Please enter email");
+    } else {
+      let myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      let raw = JSON.stringify({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        subject: data.subject,
+        msg: data.message,
+      });
+
+      let requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+      };
+
+      fetch("http://localhost:4005/contact", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+          if (result.status === 1) {
+            alert("Contact information sent successfully");
+          } else {
+            alert("Something went wrong. " + result.msg);
+          }
+        })
+        .catch((error) => console.log("error", error));
+    }
+  };
 
   return (
     <>
@@ -133,7 +170,13 @@ function ContactSection() {
                   </div>
                   <div className="col-12">
                     <div className="contact-btn">
-                      <button className="nav-btn">Send Message</button>
+                      <button
+                        className="nav-btn"
+                        type="button"
+                        onClick={sendMessage}
+                      >
+                        Send Message
+                      </button>
                     </div>
                   </div>
                 </div>

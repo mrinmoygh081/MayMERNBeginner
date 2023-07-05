@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import ContactSection from "../components/ContactSection";
 import AboutSection from "../components/AboutSection";
 import ServiceCard from "../components/ServiceCard";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [again, setAgain] = useState(false);
@@ -24,7 +25,7 @@ function Home() {
     getData();
   }, [again]); // dependencies
 
-  console.log(fetchData);
+  // console.log(fetchData);
 
   return (
     <>
@@ -47,9 +48,9 @@ function Home() {
                     Impedit doloremque vero ea quibusdam temporibus Lorem
                   </p>
                   <div>
-                    <a href="#" className="hero-btn">
+                    <Link to="/about" className="hero-btn">
                       Get Started
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -171,15 +172,25 @@ function Home() {
             </div>
             <div className="col-12">
               <div className="service-items">
-                <ServiceCard
-                  headline={"SEO Optimazation"}
-                  para={
-                    "Digital marketing is necessary to get sastainable clients"
-                  }
-                  icon={"chatbox"}
-                  iconColor={"#13c4a1"}
-                />
-                <ServiceCard
+                {fetchData &&
+                  fetchData.map((item, index) => {
+                    return (
+                      <div
+                        key={index}
+                        style={{
+                          borderWidth: 1,
+                          borderColor: "#ccc",
+                          borderStyle: "solid",
+                          padding: 10,
+                        }}
+                      >
+                        <h2>{item.title}</h2>
+                        <p>{item.body}</p>
+                      </div>
+                    );
+                  })}
+
+                {/* <ServiceCard
                   headline="Digital Marketing"
                   para={"lorem ipsum"}
                   icon={"desktop"}
@@ -193,7 +204,7 @@ function Home() {
                 />
                 <ServiceCard headline={"Keyword Targeting"} />
                 <ServiceCard headline={"Email Marketing"} />
-                <ServiceCard headline={"Marketing & Reporting"} />
+                <ServiceCard headline={"Marketing & Reporting"} /> */}
 
                 {/* <div className="service-item">
                   <div

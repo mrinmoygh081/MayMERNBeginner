@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <>
+    <div className="header_desk">
       <div className="topbar">
         <div className="container">
           <div className="row">
@@ -100,7 +100,7 @@ function Header() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

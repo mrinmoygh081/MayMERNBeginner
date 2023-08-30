@@ -1,14 +1,24 @@
-export const getDist = (pickup, dropoff) => {
+export const getDist = async (pickup, dropoff) => {
+  let resu = null;
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({
+    pickup: pickup,
+    dropoff: dropoff,
+  });
+
   var requestOptions = {
-    method: "GET",
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
     redirect: "follow",
   };
 
-  fetch(
-    "https://maps.googleapis.com/maps/api/directions/json?destination=Montreal&origin=Toronto&key=AIzaSyA3Fvc0bRRWw4hTtD2Sln45D4D7CV1de2I",
-    requestOptions
-  )
-    .then((response) => response.text())
-    .then((result) => console.log(result))
+  await fetch("http://localhost:4000/getDist", requestOptions)
+    .then((response) => response.json())
+    .then((result) => (resu = result))
     .catch((error) => console.log("error", error));
+
+  return resu;
 };
